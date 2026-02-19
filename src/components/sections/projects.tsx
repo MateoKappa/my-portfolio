@@ -4,9 +4,23 @@ import { motion } from "framer-motion";
 
 const projects = [
   {
+    title: "Sensay",
+    subtitle: "AI Knowledge & Replica Platform",
+    year: "2023–2025",
+    description:
+      "Founding team member at AI startup building knowledge transfer and AI replica products across 3 major product evolutions.",
+    highlights: [
+      "Built AI chatbot systems with RAG pipeline and semantic chunking",
+      "Achieved near-instant page loads with Next.js partial prerendering",
+      "Designed database schema with Supabase Row-Level Security",
+      "Created Telegram & Slack bot integrations powered by AI",
+    ],
+    stack: ["Next.js", "TypeScript", "Hono", "Supabase", "AI/LLM"],
+  },
+  {
     title: "Enviweb",
     subtitle: "Learning Management System",
-    year: "2022",
+    year: "2022–2023",
     description:
       "Multilingual online course platform with comprehensive admin controls and progress tracking.",
     highlights: [

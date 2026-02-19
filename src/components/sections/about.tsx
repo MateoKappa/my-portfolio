@@ -5,32 +5,39 @@ import { GraduationCap, Building2, Calendar } from "lucide-react";
 
 const experiences = [
   {
-    role: "Full-Stack Developer",
+    role: "Full Stack Developer",
     company: "Sensay",
-    period: "Jun 2023 – Jan 2026",
+    period: "Jun 2023 – Jan 2025",
     description:
-      "Built AI-powered knowledge platform with RAG systems, Stripe integration, and Telegram/Slack bots.",
+      "Founding team member at AI startup building knowledge transfer and AI replica products across multiple product pivots.",
   },
   {
-    role: "Mobile & Full-Stack Developer",
-    company: "Travelmyth",
-    period: "2023 – 2024",
-    description:
-      "Developed cross-platform mobile app for hotel booking aggregator using React Native and Expo.",
-  },
-  {
-    role: "Blockchain Developer",
-    company: "Fankee",
-    period: "Apr 2023 – Jul 2023",
-    description:
-      "Built Web3 music platform with NFT minting system and fractional song ownership.",
-  },
-  {
-    role: "Full-Stack Developer",
+    role: "Full Stack Developer",
     company: "Enviweb",
-    period: "2022 – 2023",
+    period: "Mar 2022 – Sept 2023",
     description:
-      "Developed product data management system with web scraping and price comparison features.",
+      "Built a multilingual online course platform with admin controls, progress tracking, and internationalization.",
+  },
+  {
+    role: "Frontend Developer",
+    company: "TheForgeAI",
+    period: "May 2023 – Oct 2023",
+    description:
+      "Built the frontend for an AI-powered application builder with visual data flow editor using React Flow.",
+  },
+  {
+    role: "Mobile Developer",
+    company: "Epoptia Cloud MES",
+    period: "Jun 2023 – Aug 2023",
+    description:
+      "Developed manufacturing execution system mobile app from scratch with real-time GraphQL data sync.",
+  },
+  {
+    role: "Freelance Full Stack Developer",
+    company: "Various Clients",
+    period: "2021 – 2023",
+    description:
+      "Delivered multiple projects for international clients on Upwork — from B2B analytics platforms to restaurant marketing sites and mobile booking apps.",
   },
 ];
 
@@ -77,15 +84,14 @@ export function About() {
 
             <div className="space-y-5 text-muted-foreground">
               <p className="leading-relaxed">
-                Full-Stack Developer with expertise in building production-ready
-                web and mobile applications. Specialized in modern
-                JavaScript/TypeScript ecosystems, blockchain integrations, and
-                AI-powered systems.
+                Full Stack Developer with 5+ years of experience building
+                AI-powered web applications. Early-stage startup veteran who
+                helped grow Sensay from founding team to a full product company.
               </p>
               <p className="leading-relaxed">
-                From RAG systems and LLM-powered applications to NFT platforms
-                and payment integrations, I bring ideas to life with clean,
-                scalable code and thoughtful architecture.
+                I specialize in high-performance web applications with Next.js,
+                production AI systems including chatbots and RAG pipelines, and
+                full-stack development from prototype to production.
               </p>
             </div>
 
@@ -100,10 +106,7 @@ export function About() {
               <div>
                 <h3 className="font-medium">BSc in Digital Systems</h3>
                 <p className="text-sm text-muted-foreground">
-                  University of Thessaly
-                </p>
-                <p className="text-sm text-muted-foreground">
-                  Thesis: Quantum Games
+                  University of Thessaly (UTH)
                 </p>
               </div>
             </div>

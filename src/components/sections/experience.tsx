@@ -2,7 +2,7 @@
 
 import { Badge } from "@/components/ui/badge";
 import { BentoCard } from "@/components/bento-grid";
-import { MotionCard, StaggerContainer } from "@/components/motion-wrapper";
+import { StaggerContainer } from "@/components/motion-wrapper";
 import { Briefcase, Rocket, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -65,8 +65,26 @@ export function Experience() {
 
         <StaggerContainer className="grid grid-cols-1 gap-6">
           {experiences.map((exp, i) => (
-            <MotionCard key={exp.company} index={i}>
-              <BentoCard className="md:p-8">
+            <motion.div
+              key={exp.company}
+              custom={i}
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: (idx: number) => ({
+                  opacity: 1,
+                  y: 0,
+                  transition: {
+                    delay: idx * 0.1,
+                    duration: 0.7,
+                    ease: [0.25, 0.46, 0.45, 0.94],
+                  },
+                }),
+              }}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.1 }}
+            >
+              <BentoCard className="md:p-8 hover:border-primary/20 hover:shadow-[0_0_30px_-10px_rgba(201,169,110,0.1)]">
                 <div className="flex flex-col gap-6 lg:flex-row lg:gap-10">
                   {/* Left - header */}
                   <div className="shrink-0 lg:w-72">
@@ -117,7 +135,7 @@ export function Experience() {
                   </div>
                 </div>
               </BentoCard>
-            </MotionCard>
+            </motion.div>
           ))}
         </StaggerContainer>
       </div>

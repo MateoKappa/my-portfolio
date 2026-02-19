@@ -30,7 +30,7 @@ export function BentoCard({
   return (
     <div
       className={cn(
-        "glass group relative overflow-hidden rounded-2xl p-6 transition-colors duration-300",
+        "glass group relative overflow-hidden rounded-2xl border border-transparent p-6 transition-[color,border-color,box-shadow] duration-300",
         className
       )}
     >

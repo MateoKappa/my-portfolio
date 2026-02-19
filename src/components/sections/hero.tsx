@@ -61,43 +61,48 @@ export function Hero() {
   }, [mouseX, mouseY]);
 
   return (
-    <section className="relative flex min-h-screen flex-col justify-center overflow-hidden">
-      {/* Cursor-following ambient glow */}
+    <section className="relative flex min-h-screen flex-col justify-center pt-24 lg:pt-0">
+      {/* Cursor-following ambient glow — outside overflow clip so it doesn't get cut */}
       <motion.div
-        className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[400px] w-[400px] rounded-full bg-[#c9a96e] opacity-[0.04] blur-[100px]"
+        className="pointer-events-none absolute left-1/2 top-1/2 h-[400px] w-[400px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#c9a96e] opacity-[0.04] blur-[100px]"
         style={{ x: glowX, y: glowY }}
       />
 
-      {/* Floating golden particles */}
-      {particles.map((p, i) => (
-        <motion.div
-          key={i}
-          className="pointer-events-none absolute rounded-full bg-primary/20"
-          style={{ left: p.x, top: p.y, width: p.size, height: p.size }}
-          animate={{
-            y: [0, -30, 10, -20, 0],
-            x: [0, 15, -10, 5, 0],
-            opacity: [0.15, 0.3, 0.1, 0.25, 0.15],
-          }}
-          transition={{
-            duration: p.duration,
-            repeat: Infinity,
-            delay: p.delay,
-            ease: "easeInOut",
-          }}
-        />
-      ))}
+      {/* Particles container — clipped so they don't leak */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        {particles.map((p, i) => (
+          <motion.div
+            key={i}
+            className="absolute rounded-full bg-primary/20"
+            style={{ left: p.x, top: p.y, width: p.size, height: p.size }}
+            animate={{
+              y: [0, -30, 10, -20, 0],
+              x: [0, 15, -10, 5, 0],
+              opacity: [0.15, 0.3, 0.1, 0.25, 0.15],
+            }}
+            transition={{
+              duration: p.duration,
+              repeat: Infinity,
+              delay: p.delay,
+              ease: "easeInOut",
+            }}
+          />
+        ))}
+      </div>
 
       <div className="relative z-10 mx-auto w-full max-w-6xl px-6 lg:px-8">
-        <div className="flex flex-col items-center gap-12 lg:flex-row lg:items-center lg:justify-between">
+        <div className="flex flex-col items-start gap-8 lg:flex-row lg:items-center lg:justify-between lg:gap-12">
           {/* Left: Text with subtle parallax */}
-          <motion.div className="w-full flex-1 lg:w-auto" style={{ x: textX, y: textY }}>
+          <motion.div
+            className="w-full flex-1 lg:w-auto"
+            style={{ x: textX, y: textY }}
+          >
             {/* Status badge */}
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-              className="mb-12"
+              className="mb-8 lg:mb-12"
             >
               <div className="inline-flex items-center gap-2.5 rounded-full border border-border px-4 py-2">
                 <span className="relative flex h-2 w-2">
@@ -119,7 +124,7 @@ export function Hero() {
                 delay: 0.4,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="mb-6 font-serif text-[clamp(3.5rem,12vw,9rem)] font-normal italic leading-[0.9] tracking-tight"
+              className="mb-5 font-serif text-[clamp(3rem,12vw,9rem)] font-normal italic leading-[0.9] tracking-tight lg:mb-6"
             >
               <span className="block">Mateo</span>
               <span className="block">
@@ -130,7 +135,7 @@ export function Hero() {
 
             {/* Golden accent line */}
             <motion.div
-              className="mb-6 h-px w-12 bg-primary/50"
+              className="mb-5 h-px w-12 bg-primary/50 lg:mb-6"
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
               transition={{ duration: 0.6, delay: 0.8 }}
@@ -142,12 +147,12 @@ export function Hero() {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.7, ease: "easeOut" }}
-              className="mb-10 max-w-lg"
+              className="mb-6 max-w-lg lg:mb-10"
             >
-              <p className="mb-3 text-lg font-medium text-foreground/60">
+              <p className="mb-2 text-lg font-medium text-foreground/60 lg:mb-3">
                 Full-Stack Developer
               </p>
-              <p className="text-base leading-relaxed text-muted-foreground">
+              <p className="text-sm leading-relaxed text-muted-foreground lg:text-base">
                 5+ years building AI-powered web applications. From founding
                 team to production — I ship fast, performant, and scalable code.
               </p>
@@ -158,7 +163,7 @@ export function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 1, ease: "easeOut" }}
-              className="flex flex-wrap items-center gap-6 text-sm text-muted-foreground"
+              className="flex flex-wrap items-center gap-3 text-sm text-muted-foreground sm:gap-6"
             >
               <span>Greece</span>
               <span className="hidden text-border sm:inline">|</span>
@@ -201,7 +206,7 @@ export function Hero() {
               transformPerspective: 1200,
             }}
           >
-            <div className="relative h-72 w-72 overflow-hidden rounded-2xl border border-border/50 shadow-[0_20px_60px_-15px_rgba(201,169,110,0.15)] lg:h-80 lg:w-80">
+            <div className="relative h-52 w-52 overflow-hidden rounded-2xl border border-border/50 shadow-[0_20px_60px_-15px_rgba(201,169,110,0.15)] sm:h-64 sm:w-64 lg:h-80 lg:w-80">
               <Image
                 src="/profile.jpg"
                 alt="Mateo Kapllani"

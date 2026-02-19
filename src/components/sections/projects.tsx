@@ -125,7 +125,7 @@ export function Projects() {
                 duration: 0.6,
                 ease: "easeOut",
               }}
-              className="group rounded-xl border border-border bg-card/30 p-6 transition-all duration-300 hover:border-primary/20 hover:bg-card/60"
+              className="group rounded-xl border border-border bg-card/30 p-6 transition-[color,border-color,background-color] duration-300 hover:border-primary/20 hover:bg-card/60"
             >
               {/* Header */}
               <div className="mb-4 flex items-start justify-between">

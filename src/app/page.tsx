@@ -11,7 +11,9 @@ export default function Home() {
       <Navbar />
 
       <main>
-        <Hero />
+        <div className="relative z-[1]">
+          <Hero />
+        </div>
 
         <div id="about">
           <About />
